@@ -1,6 +1,7 @@
 var socket = io.connect('http://localhost:8000');
 
-socket.on('message', function (data) {
+socket.on('track', function (data) {
   console.log(data);
-  $('#message').text(data.message)
+  $('.track img').attr('src', data.image)
+  $('.track .track-name').text(data.track_name)
 });

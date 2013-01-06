@@ -1,14 +1,20 @@
 body {
   background: #000;
 }
-#message {
+.track {
   font-family: sans-serif;
-  font-size: 50px;
+  font-size: 60px;
   letter-spacing: -0.05em;
   font-weight: bold;
   text-align: center;
-  margin-top: 200px;
+  margin-top: 150px;
+}
+.track-name {
   background: -webkit-linear-gradient(top, #eee, #888);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+.track img {
+  width: 150px;
+  margin-bottom: 25px;
 }
