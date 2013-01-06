@@ -4,10 +4,6 @@ var fs = require('fs');
 var arduino = require('duino')
 var tako = require('tako')
 var app = tako()
-  
-  app.sockets.on('connection', function (socket) {
-    app.sockets.emit('message', { message: f[i]});
-  })
 
   app.httpServer.listen(8000)
 
@@ -19,7 +15,9 @@ var app = tako()
   var player = {}
   var playing = false
 
-
+  app.sockets.on('connection', function (socket) {
+    app.sockets.emit('message', { message: f[i]});
+  })
 
   display(f[i])
   
