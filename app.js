@@ -8,7 +8,7 @@ var app = tako()
   app.httpServer.listen(8000)
 
   
-  var f = fs.readdirSync('./files')
+  var f = fs.readdirSync('./music')
   var i = 0
   var delay = 500
 
@@ -16,10 +16,11 @@ var app = tako()
   var playing = false
 
   app.sockets.on('connection', function (socket) {
-    app.sockets.emit('message', { message: f[i]});
+   // app.sockets.emit('message',{ message: f[i], i: i, image: '../images/' + i + '.jpeg'});
+   display(f[i], i)   
   })
 
-  display(f[i])
+  display(f[i], i)
   
   var board = new arduino.Board({
   //  debug: true
@@ -39,7 +40,7 @@ var app = tako()
     // Up
     if (value > 890) {
       if (i > 0) i--
-      display(f[i])
+      display(f[i], i)
       stopFile()
       playFile(f[i])
       board.delay(delay)
@@ -47,7 +48,7 @@ var app = tako()
     // Down
     if (value < 15) {
       if (i < (f.length - 1)) i++
-      display(f[i])
+      display(f[i], i)
       stopFile()
       playFile(f[i])
       board.delay(delay)
@@ -57,26 +58,26 @@ var app = tako()
   sensor1.on('read', function(err, value) {
   // Right
   if (value < 15) {
-    display(f[i])
+    display(f[i], i)
     stopFile()
     playFile(f[i])
     board.delay(delay)  
   }
   // Left
   if (value > 890) {
-    display(f[i])
+    display(f[i], i)
     stopFile()
     board.delay(delay)  
   }
   });
 
 
-  function display(msg) {
-    app.sockets.emit('message', { message: msg});
+  function display(msg, i) {
+    app.sockets.emit('message', { message: msg, i: i, image: '../images/' + i + '.jpeg'});
   }
 
   function playFile(f) {
-    player = spawn('play', ['./files/' + f])      
+    player = spawn('play', ['./music/' + f])      
     playing = true
   }
 
