@@ -1,4 +1,4 @@
-Tinkerkit Arduio based audio player
+Tinkerkit + Arduino Uno based audio player
 
 ### Install 
 
