@@ -5,6 +5,8 @@ var arduino = require('duino')
 var tako = require('tako')
 var app = tako()
 
+
+  app.route('/client/*').files(__dirname + '/client');
   app.httpServer.listen(8000)
 
   
