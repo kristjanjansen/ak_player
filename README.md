@@ -25,13 +25,13 @@ volo install
 
 4\. Connect Arduino with Tinkerkit joystick assigned to I0 and I1
 
-4\. Run
+5\. Run
 
 ```
 node app.js
 ```
 
-5\. Point browser to
+6\. Point browser to
 
 ```
 localhost:8000/client/index.html
