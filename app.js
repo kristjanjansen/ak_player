@@ -8,7 +8,7 @@ var app = tako()
   app.httpServer.listen(8000)
 
   
-  var f = fs.readdirSync('./files')
+  var f = fs.readdirSync('./music')
   var i = 0
   var delay = 500
 
@@ -76,7 +76,7 @@ var app = tako()
   }
 
   function playFile(f) {
-    player = spawn('play', ['./files/' + f])      
+    player = spawn('play', ['./music/' + f])      
     playing = true
   }
 

@@ -1,4 +1,5 @@
 .DS_Store
-files
+music
+images
 client/vendor
 node_modules
