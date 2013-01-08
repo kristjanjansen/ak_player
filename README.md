@@ -8,13 +8,22 @@ Tinkerkit Arduio based audio player
 brew install sox
 ```
 
-2\. Install modules
+For Raspberry, run
+
+```
+sudo apt-get install sox
+```
+
+2\. Install modules (assuming you have npm and volo installed)
 
 ```
 npm install duino socket.io tako
+volo install
 ```
 
-3\. Create ```files``` subdirectory and copy some audio files there
+3\. Create ```music``` subdirectory and put some audio files there
+
+4\. Connect Arduino with Tinkerkit joystick assigned to I0 and I1
 
 4\. Run
 
@@ -25,6 +34,6 @@ node app.js
 5\. Point browser to
 
 ```
-client/index.html
+localhost:8000/client/index.html
 ```
 
